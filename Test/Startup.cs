@@ -2,11 +2,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System;
 using Test.Middlewares;
 using Test.Services;
-using Test.Services.Impl;
 
 namespace Test
 {
@@ -22,8 +19,7 @@ namespace Test
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IHttpClient, DefaultHttpClient>();
-            services.AddTransient<IHttpClient, CustomHttpClient>();
+            services.AddTransient<IStringService, DefaultStringService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
